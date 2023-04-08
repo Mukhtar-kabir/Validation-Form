@@ -1,0 +1,147 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #ecf0f3;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  font-family: sans-serif;
+}
+
+.signup_form {
+  width: min(700px, 90vw);
+  padding: 15px;
+  background-color: #ecf0f3;
+  box-shadow: 14px 14px 20px #cbced1, -14px -13px 20px #fff;
+  border-radius: 5px;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.signup_form > h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #191c39;
+}
+
+.name_container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.name_container > label {
+  min-width: 200px;
+}
+
+.signup_form label {
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+}
+
+.signup_form input {
+  height: 40px;
+  padding: 0 5px;
+  border: 2px solid #1d3557;
+  border-radius: 5px;
+  background: #ecf0f3;
+  outline: none;
+  flex-grow: 1;
+  margin: 1rem 0;
+}
+
+label > span {
+  width: max-content;
+  padding: 1px 4px;
+  position: absolute;
+  left: 6px;
+  transition: all 0.5s;
+  opacity: 0.7;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+input:focus + span,
+input:not(:placeholder-shown) + span {
+  opacity: 1;
+  background-color: #f8edeb;
+  top: 0;
+}
+
+input:focus:valid + span,
+input:not(:placeholder-shown):valid + span {
+  color: green;
+}
+
+input:focus:invalid + span,
+input:not(:placeholder-shown):invalid + span {
+  color: red;
+  animation: shake_input_placeholder 0.2s ease-in-out 0.5s 2;
+}
+
+input:focus:valid,
+input:not(:placeholder-shown):valid {
+  border: 2px solid green;
+}
+
+input:focus:invalid,
+input:not(:placeholder-shown):invalid {
+  border: 2px solid red;
+  animation: shake_input_box 0.2s ease-in-out 0.5s 2;
+}
+
+.signup_form > button {
+  height: 40px;
+  background-color: #191c39;
+  color: #b4d9e3;
+  font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: 2px;
+  border-radius: 5px;
+  padding: 10px;
+  cursor: pointer;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  right: 50%;
+  margin-top: 2rem;
+  position: relative;
+}
+
+.signup_form > button:hover {
+    opacity: .90;
+}
+
+@keyframes shake_input_box {
+  0% {
+    transform: translateX(0rem);
+  }
+  25% {
+    transform: translateX(0.5rem);
+  }
+  75% {
+    transform: translateX(-0.5rem);
+  }
+  100% {
+    transform: translateX(0rem);
+  }
+}
+
+@keyframes shake_input_placeholder {
+  0% {
+    transform: translateX(0rem) translateY(-50%);
+  }
+  25% {
+    transform: translateX(0.5rem) translateY(-50%);
+  }
+  75% {
+    transform: translateX(-0.5rem) translateY(-50%);
+  }
+  100% {
+    transform: translateX(0rem) translateY(-50%);
+  }
+}
